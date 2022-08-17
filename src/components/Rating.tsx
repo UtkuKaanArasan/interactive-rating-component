@@ -1,17 +1,26 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import icon from '../images/icon-star.svg';
 
-const Rating = () => {
+interface RatingProps{
+    // To change the submitted state when submitted
+    setSubmitted: React.Dispatch<React.SetStateAction<boolean>>,
+    // To change the rating whenever clicked on a rating number
+    setRating: React.Dispatch<React.SetStateAction<number>>,
+}
 
-    const [rating, setRating] = useState<number>(0);
+const Rating: FC<RatingProps> = ({setSubmitted, setRating}) => {
 
     function ratingButtonHandler(e: any): void {
         // I tried everything yet I couldn't add type checking
         setRating(parseInt(e.target.innerText))
     }
 
+    function submitButtonHandler() {
+        setSubmitted(true)
+    }
+
     return (
-        <div className="bg-Very-Dark-Blue w-9/10 p-4 rounded-2xl sm:w-1/2 lg:w-1/3 2xl:w-1/4">
+        <div className="bg-Very-Dark-Blue w-9/10 p-4 m-2 rounded-2xl sm:w-1/2 lg:w-1/3 2xl:w-1/4">
             <img
                 src={icon}
                 alt="icon"
@@ -51,6 +60,7 @@ const Rating = () => {
                 <button
                     className='
                     bg-Orange text-White text-center w-full m-2 p-2 rounded-3xl hover:bg-White hover:text-Orange'
+                    onClick={submitButtonHandler}
                 >
                     Submit
                 </button>
