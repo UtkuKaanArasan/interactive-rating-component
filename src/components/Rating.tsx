@@ -1,4 +1,6 @@
-import React, { FC, useState } from 'react';
+// React and Type checking for functional component
+import React, { FC } from 'react';
+// Icon import
 import icon from '../images/icon-star.svg';
 
 interface RatingProps{
