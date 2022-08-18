@@ -16,7 +16,7 @@ function App() {
       {
         // if the form isn't submitted it will render Rating component, else it will render thanks screen
         submitted === false ? (
-          <Rating setRating={setRating} setSubmitted={setSubmitted} />) :
+          <Rating rating={rating} setRating={setRating} setSubmitted={setSubmitted} />) :
           <Thanks rating={rating} />
       }
     </div>

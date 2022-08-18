@@ -9,6 +9,7 @@ module.exports = {
       'Medium-Grey': '#7c8798',
       'Dark-Blue': '#252d37',
       'Very-Dark-Blue': '#121417',
+      'Alert': '#dc2626',
     },
     fontSize: {
       'Paragraph': '15px',

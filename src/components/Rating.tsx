@@ -8,9 +8,11 @@ interface RatingProps{
     setSubmitted: React.Dispatch<React.SetStateAction<boolean>>,
     // To change the rating whenever clicked on a rating number
     setRating: React.Dispatch<React.SetStateAction<number>>,
+    // To check whether rating is 0 or not
+    rating: number,
 }
 
-const Rating: FC<RatingProps> = ({setSubmitted, setRating}) => {
+const Rating: FC<RatingProps> = ({setSubmitted, setRating, rating}) => {
 
     function ratingButtonHandler(e: any): void {
         // I tried everything yet I couldn't add type checking
@@ -18,7 +20,9 @@ const Rating: FC<RatingProps> = ({setSubmitted, setRating}) => {
     }
 
     function submitButtonHandler() {
-        setSubmitted(true)
+        if (rating !== 0) {
+            setSubmitted(true)
+        }
     }
 
     return (
@@ -57,6 +61,9 @@ const Rating: FC<RatingProps> = ({setSubmitted, setRating}) => {
                     className='rounded-3xl bg-Dark-Blue text-White px-4 py-2 hover:bg-Orange'
                     onClick={ratingButtonHandler}
                 >5</div>
+            </div>
+            <div>
+            {rating === 0 ? <p className='text-Alert'>Please rate us</p> : null}
             </div>
             <div className='flex justify-center'>
                 <button
